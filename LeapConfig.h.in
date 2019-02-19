@@ -1,0 +1,3 @@
+// the configured options and settings for Leap
+#define Leap_VERSION_MAJOR @Leap_VERSION_MAJOR@
+#define Leap_VERSION_MINOR @Leap_VERSION_MINOR@
