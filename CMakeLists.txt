@@ -49,6 +49,7 @@ add_executable(leap-opengl4
         tux-draw/opengl/opengl.cpp tux-draw/opengl/common/OpenGLWindow.cpp tux-draw/opengl/common/glad/src/glad.c
         tux-draw/opengl/common/shader.cpp tux-draw/opengl/common/shaderProgram.cpp tux-draw/opengl/common/vertexBufferObject.cpp
         tux-draw/opengl/common/uniform.cpp tux-draw/opengl/opengl-main-window.cpp tux-draw/opengl/common/staticGeometry.cpp
+        tux-draw/opengl/common/flyingCamera.cpp
         )
 
 if(LINUX)

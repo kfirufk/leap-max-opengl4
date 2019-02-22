@@ -1,4 +1,4 @@
-#version 440 core
+#version 410 core
 
 uniform struct
 {
@@ -14,7 +14,7 @@ smooth out vec3 ioVertexColor;
 
 void main()
 {
-	mat4 mvpMatrix = matrices.projectionMatrix * matrices.viewMatrix * matrices.modelMatrix;
+mat4 mvpMatrix = matrices.projectionMatrix * matrices.viewMatrix * matrices.modelMatrix;
 	gl_Position = mvpMatrix * vec4(vertexPosition, 1.0);
 	ioVertexColor = vertexColor;
 }
