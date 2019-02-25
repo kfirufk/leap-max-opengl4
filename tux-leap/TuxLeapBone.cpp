@@ -4,9 +4,9 @@
 
 #include "TuxLeapBone.h"
 
-
-TuxLeapBone::TuxLeapBone(Leap::Bone b) {
+TuxLeapBone::TuxLeapBone(Leap::Finger f, Leap::Bone b) {
     bone=b;
+    finger=f;
 }
 
 

@@ -27,7 +27,7 @@ public:
 
     void setIsDrawDataRendered(bool isDrawDataRendered);
 
-    void init();
+    int init();
     void draw();
     void drawText(std::string txt, float x, float y, float z);
 };

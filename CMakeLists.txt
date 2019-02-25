@@ -44,12 +44,21 @@ add_executable(leap-opengl-test
         tux-leap/TuxLeapBone.cpp tux-leap/TuxLeapBone.h
         tux-leap/TuxLeapHand.h tux-leap/TuxLeapHand.cpp
         tux-leap/TuxLeap.cpp tux-leap/TuxLeap.h
-        tux-draw/TuxDraw.h tux-draw/TuxDraw.cpp tux-draw/TuxDrawOpenGL.cpp)
+        tux-draw/TuxDraw.h tux-draw/TuxDraw.cpp tux-draw/opengl/TuxDrawOpenGL.cpp)
 add_executable(leap-opengl4
-        tux-draw/opengl/opengl.cpp tux-draw/opengl/common/OpenGLWindow.cpp tux-draw/opengl/common/glad/src/glad.c
+        tux-draw/opengl/openglwindow-render.cpp tux-draw/opengl/common/OpenGLWindow.cpp tux-draw/opengl/common/glad/src/glad.c
         tux-draw/opengl/common/shader.cpp tux-draw/opengl/common/shaderProgram.cpp tux-draw/opengl/common/vertexBufferObject.cpp
-        tux-draw/opengl/common/uniform.cpp tux-draw/opengl/opengl-main-window.cpp tux-draw/opengl/common/staticGeometry.cpp
+        tux-draw/opengl/common/uniform.cpp tux-leap-opengl.cpp tux-draw/opengl/staticGeometry.cpp
         tux-draw/opengl/common/flyingCamera.cpp
+
+        tux-leap/TuxLeapHand.cpp
+        tux-leap/TuxLeapArm.cpp
+        tux-leap/TuxLeapFinger.cpp
+        tux-leap/TuxLeapBone.cpp
+        tux-leap/TuxLeapHand.cpp
+        tux-leap/TuxLeap.cpp
+        tux-draw/TuxDraw.cpp
+        tux-draw/opengl/TuxDrawOpenGL.cpp
         )
 
 if(LINUX)

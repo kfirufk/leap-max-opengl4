@@ -46,9 +46,9 @@ void SampleListener::onFrame(const Controller& controller) {
             for (HandList::const_iterator hl = hands.begin(); hl != hands.end(); ++hl) {
                 TuxLeap::hands.push_back(new TuxLeapHand(*hl));
             }
-            if (TuxDrawContainer::isDisplayReady) {
+//            if (TuxDrawContainer::isDisplayReady) {
                 TuxDrawContainer::tuxDraw->draw();
-            }
+  //          }
         }
     }
 }

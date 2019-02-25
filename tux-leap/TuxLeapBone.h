@@ -11,8 +11,9 @@
 class TuxLeapBone : Leap::Bone {
 private:
     Leap::Bone bone;
+    Leap::Finger finger;
 public:
-    TuxLeapBone(Leap::Bone b);
+    TuxLeapBone(Leap::Finger f, Leap::Bone b);
     void draw();
     Leap::Vector nextJoint();
     Leap::Vector prevJoint();

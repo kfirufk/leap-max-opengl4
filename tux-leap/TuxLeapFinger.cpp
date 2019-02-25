@@ -9,10 +9,10 @@ using namespace Leap;
 
 TuxLeapFinger::TuxLeapFinger(Finger f) {
     finger=f;
-    bones.insert(std::make_pair(Bone::Type::TYPE_METACARPAL,new TuxLeapBone(finger.bone(Bone::TYPE_METACARPAL))));
-    bones.insert(std::make_pair(Bone::Type::TYPE_PROXIMAL,new TuxLeapBone(finger.bone(Bone::TYPE_PROXIMAL))));
-    bones.insert(std::make_pair(Bone::Type::TYPE_DISTAL,new TuxLeapBone(finger.bone(Bone::TYPE_DISTAL))));
-    bones.insert(std::make_pair(Bone::Type::TYPE_INTERMEDIATE,new TuxLeapBone(finger.bone(Bone::TYPE_INTERMEDIATE))));
+    bones.insert(std::make_pair(Bone::Type::TYPE_METACARPAL,new TuxLeapBone(finger, finger.bone(Bone::TYPE_METACARPAL))));
+    bones.insert(std::make_pair(Bone::Type::TYPE_PROXIMAL,new TuxLeapBone(finger, finger.bone(Bone::TYPE_PROXIMAL))));
+    bones.insert(std::make_pair(Bone::Type::TYPE_DISTAL,new TuxLeapBone(finger, finger.bone(Bone::TYPE_DISTAL))));
+    bones.insert(std::make_pair(Bone::Type::TYPE_INTERMEDIATE,new TuxLeapBone(finger, finger.bone(Bone::TYPE_INTERMEDIATE))));
 }
 
 /**
