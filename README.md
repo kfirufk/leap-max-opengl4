@@ -29,3 +29,7 @@ ported some of it's code to c++. thanks! :)
 ### http://www.mbsoftworks.sk/tutorials/opengl4/
 
 a very good OpenGL4 tutorial. allowed me to get started quickly.
+
+### https://stackoverflow.com/questions/5988686/creating-a-3d-sphere-in-opengl-using-visual-c
+
+learned there how to draw a sphere

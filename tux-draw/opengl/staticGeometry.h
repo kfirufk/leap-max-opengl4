@@ -10,6 +10,7 @@
 #define COLOR_WHITE glm::vec3(1,1,1)
 namespace static_geometry
 {
+    extern glm::vec3 sphereColors[25];
     extern glm::vec3 jointsPolygonVertices[5];
     extern glm::vec3 jointsPolygonColor[5];
 

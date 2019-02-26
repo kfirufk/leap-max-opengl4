@@ -49,7 +49,7 @@ add_executable(leap-opengl4
         tux-draw/opengl/openglwindow-render.cpp tux-draw/opengl/common/OpenGLWindow.cpp tux-draw/opengl/common/glad/src/glad.c
         tux-draw/opengl/common/shader.cpp tux-draw/opengl/common/shaderProgram.cpp tux-draw/opengl/common/vertexBufferObject.cpp
         tux-draw/opengl/common/uniform.cpp tux-leap-opengl.cpp tux-draw/opengl/staticGeometry.cpp
-        tux-draw/opengl/common/flyingCamera.cpp
+        tux-draw/opengl/common/flyingCamera.cpp tux-draw/opengl/common/SolidSphere.cpp
 
         tux-leap/TuxLeapHand.cpp
         tux-leap/TuxLeapArm.cpp
@@ -59,7 +59,7 @@ add_executable(leap-opengl4
         tux-leap/TuxLeap.cpp
         tux-draw/TuxDraw.cpp
         tux-draw/opengl/TuxDrawOpenGL.cpp
-        )
+        tux-draw/opengl/common/SolidSphere.cpp tux-draw/opengl/common/SolidSphere.h)
 
 if(LINUX)
     message("linux")

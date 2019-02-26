@@ -7,6 +7,7 @@
 #include "./common/vertexBufferObject.h"
 #include "staticGeometry.h"
 #include "./common/flyingCamera.h"
+#include "./common/SolidSphere.h"
 
 Shader vertexShader, fragmentShader;
 ShaderProgram mainProgram;
@@ -18,6 +19,7 @@ GLuint mainVAO;
 //FlyingCamera camera(glm::vec3(0.0f, 8.0f, 20.0f), glm::vec3(0.0f, 8.0f, 19.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 FlyingCamera camera(glm::vec3(0, 0, -1), glm::vec3(0, 0, 0), glm::vec3(0.0f, 1.0f, 0.0f));
 float rotationAngleRad; // in radians
+SolidSphere sphere(1, 5, 5);
 
 void OpenGLWindow::initializeScene()
 {
@@ -73,7 +75,7 @@ void OpenGLWindow::renderScene()
     shapesVBO.addData(static_geometry::fingerMiddleJointSphere, sizeof(static_geometry::fingerMiddleJointSphere));
     shapesVBO.addData(static_geometry::fingerRingJointSphere, sizeof(static_geometry::fingerRingJointSphere));
     shapesVBO.addData(static_geometry::fingerPinkyJointSphere, sizeof(static_geometry::fingerPinkyJointSphere));
-
+    shapesVBO.addData(&sphere.indices.front(),sphere.indices.size());
     shapesVBO.uploadDataToGPU(GL_DYNAMIC_DRAW);
 
     glEnableVertexAttribArray(0);
@@ -99,8 +101,9 @@ void OpenGLWindow::renderScene()
     colorsVBO.addData(static_geometry::fingerMiddleJointSphere, sizeof(static_geometry::fingerMiddleJointSphereColor));
     colorsVBO.addData(static_geometry::fingerRingJointSphere, sizeof(static_geometry::fingerRingJointSphereColor));
     colorsVBO.addData(static_geometry::fingerPinkyJointSphere, sizeof(static_geometry::fingerPinkyJointSphereColor));
+    colorsVBO.addData(static_geometry::sphereColors,sizeof(static_geometry::sphereColors));
 
-    colorsVBO.uploadDataToGPU(GL_DYNAMIC_DRAW);
+    colorsVBO.uploadDataToGPU(GL_STATIC_DRAW);
 
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), (void*)0);
@@ -116,10 +119,6 @@ void OpenGLWindow::renderScene()
     // Render ground
     mainProgram["matrices.modelMatrix"] = glm::mat4(1.0);
 
-    std::cout << "x: " << static_geometry::armLines[0].x
-            << "y: " << static_geometry::armLines[0].y
-            << "z: " << static_geometry::armLines[0].z
-            << std::endl;
     glDrawArrays(GL_LINES,0,2); //arm lines
     glDrawArrays(GL_POINTS,2,2); // arm spheres
     glDrawArrays(GL_LINES,4,6); // thumb
@@ -127,6 +126,16 @@ void OpenGLWindow::renderScene()
     glDrawArrays(GL_LINES,18,8); // middle
     glDrawArrays(GL_LINES,26,8); // ring
     glDrawArrays(GL_LINES,34,8); // pinky
+
+    for (glm::vec3 sphereTranslation: static_geometry::fingerThumbJointSphere) {
+        glm::mat4 modelMatrixSphere = glm::mat4(1.0);
+        modelMatrixSphere = glm::translate(modelMatrixSphere, sphereTranslation);
+        //modelMatrixSphere = glm::rotate(modelMatrixSphere, rotationAngleRad, glm::vec3(0.0f, 1.0f, 0.0f));
+//        modelMatrixSphere = glm::scale(modelMatrixSphere, glm::vec3(3.0f, 3.0f, 3.0f));
+
+        mainProgram["matrices.modelMatrix"] = modelMatrixSphere;
+        glDrawArrays(GL_QUADS, 42, sphere.indices.size());
+    }
 
     std::string windowTitleWithFPS = "006.) Camera pt. 2 - Flying Camera - Tutorial by Michal Bubnar (www.mbsoftworks.sk) - FPS: "
                                      + std::to_string(getFPS()) +

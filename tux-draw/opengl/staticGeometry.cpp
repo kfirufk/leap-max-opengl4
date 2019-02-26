@@ -37,7 +37,11 @@ namespace static_geometry
 	glm::vec3 fingerPinkyJointSphere[4]; // leapC 4 index - pinky
 	glm::vec3 fingerPinkyJointSphereColor[4] = {COLOR_GREEN, COLOR_GREEN, COLOR_GREEN, COLOR_GREEN};
 
-
+    glm::vec3 sphereColors[25] = {COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,
+                                  COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,
+                                  COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,
+                                  COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,COLOR_GREEN,
+                                  COLOR_GREEN};
 
 	void addFingerJointData(Leap::Finger::Type fType,  glm::vec3 vec1, glm::vec3 vec2, glm::vec3 vec3, glm::vec3 vec4) {
 		switch (fType) {

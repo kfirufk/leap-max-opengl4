@@ -89,7 +89,7 @@ void FlyingCamera::update(const std::function<bool(int)>& keyInputFunc,
 		rotateUpDown(float(delta.y) * _mouseSensitivity);
 	}
 
-	setCursorPosFunc(_windowCenterPosition);
+	//setCursorPosFunc(_windowCenterPosition);
 }
 
 void FlyingCamera::moveBy(float distance)
